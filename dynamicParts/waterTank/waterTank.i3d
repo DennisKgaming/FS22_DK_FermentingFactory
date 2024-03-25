@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="waterTank.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="21" filename="$data/shaders/buildingShader.xml"/>
+    <File fileId="3" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="16" filename="textures/Andockstation5.dds"/>
+    <File fileId="20" filename="textures/concrete_smooth.dds"/>
+    <File fileId="14" filename="textures/flieglTMK266_diffuse.dds"/>
+    <File fileId="15" filename="textures/flieglTMK266_specular.dds"/>
+    <File fileId="7" filename="textures/garantTSA_diffuse.dds"/>
+    <File fileId="8" filename="textures/garantTSA_normal.dds"/>
+    <File fileId="9" filename="textures/garantTSA_specular.dds"/>
+    <File fileId="18" filename="textures/pipes_normal.dds"/>
+    <File fileId="12" filename="textures/waterTrailer1_diffuse.dds"/>
+    <File fileId="1" filename="textures/waterTrailer_diffuse.dds"/>
+    <File fileId="10" filename="textures/window_diffuse.png"/>
+    <File fileId="11" filename="textures/window_specular.png"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="acmat_0" materialId="5" customShaderId="3">
+      <Texture fileId="7"/>
+      <Normalmap fileId="8"/>
+      <Glossmap fileId="9"/>
+    </Material>
+    <Material name="acmat_0" materialId="6" specularColor="0.647059 1 1">
+      <Texture fileId="12"/>
+    </Material>
+    <Material name="acmat_0" materialId="7" specularColor="0.4 1 0.294118" customShaderId="3">
+      <Texture fileId="1"/>
+    </Material>
+    <Material name="buildingsArray_mat" materialId="8" alphaBlending="true" customShaderId="21">
+      <Texture fileId="20"/>
+    </Material>
+    <Material name="flieglTMK266Bull_mat" materialId="9" customShaderId="3">
+      <Texture fileId="14"/>
+      <Glossmap fileId="15"/>
+    </Material>
+    <Material name="lambert11" materialId="10">
+      <Texture fileId="16"/>
+    </Material>
+    <Material name="PipeWork" materialId="11" diffuseColor="1 1 1 1" specularColor="0.894118 1 0.894118">
+      <Normalmap fileId="18"/>
+    </Material>
+    <Material name="window_mat" materialId="12" alphaBlending="true" customShaderId="3">
+      <Texture fileId="10"/>
+      <Glossmap fileId="11"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="waterTank.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <TransformGroup name="tankStation" rotation="-1.50096e-16 0 -1.20584e-10" nodeId="26">
+        <Shape shapeId="1" name="Watertank" translation="1.00659e-14 -0.101428 1.1514e-07" rotation="-1.00179e-05 180 0" static="true" clipDistance="150" nodeId="27" materialIds="7" castsShadows="true" receiveShadows="true">
+          <Shape shapeId="2" name="fillLevel" translation="-0.00334946 2.37734 -3.07677" rotation="1.51837e-06 -90 -1.51692e-05" nodeId="28" materialIds="5" castsShadows="true" receiveShadows="true">
+            <TransformGroup name="glass" nodeId="29">
+              <Shape shapeId="3" name="glass" nodeId="30" materialIds="12" castsShadows="true" receiveShadows="true"/>
+            </TransformGroup>
+            <Shape shapeId="4" name="FillLevel_mover" translation="-0.006 0.3 -1.4422e-08" rotation="-90 0 1.11368" kinematic="true" collision="false" nodeId="31" materialIds="6" castsShadows="true" receiveShadows="true"/>
+          </Shape>
+          <Shape shapeId="5" name="supportArm" translation="1.78718 0.712 -7.63522" scale="0.8 1 0.8" nodeId="32" materialIds="9" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="5" name="supportArm" translation="1.787 0.712 -5.03936" scale="0.8 1 0.8" nodeId="33" materialIds="9" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="5" name="supportArm" translation="1.78718 0.712 -2.44278" scale="0.8 1 0.8" nodeId="34" materialIds="9" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="5" name="supportArm" translation="-0.506 0.712 -7.63522" scale="0.8 1 0.8" nodeId="35" materialIds="9" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="5" name="supportArm" translation="-0.506 0.712 -2.44278" scale="0.8 1 0.8" nodeId="36" materialIds="9" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="5" name="supportArm" translation="-0.506 0.712 -5.03936" scale="0.8 1 0.8" nodeId="37" materialIds="9" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="6" name="Schlauch" translation="4.01593 1.35095 -1.389" rotation="-1.00179e-05 180 0" scale="0.8 0.5 0.8" clipDistance="200" nodeId="38" materialIds="10" castsShadows="true" receiveShadows="true"/>
+          <Shape shapeId="7" name="PipeRight" translation="-0.0181748 3.525 -2.70101" rotation="180 -0.756 180" scale="2.54898 2.54898 2.54898" static="true" clipDistance="800" nodeId="39" materialIds="11" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="8" name="PipeFlange" translation="0 -0.21 0" static="true" clipDistance="300" nodeId="40" materialIds="11" castsShadows="true" receiveShadows="true"/>
+          </Shape>
+        </Shape>
+        <Shape shapeId="9" name="concreteBorder02" translation="-1.45739 0.326287 5.57666" rotation="-180 -0 -90" scale="1 2.8 2.4" static="true" clipDistance="91" nodeId="41" materialIds="8" castsShadows="true" receiveShadows="true"/>
+        <TransformGroup name="BuildParts" translation="-10.9078 0.544065 -8.86331" clipDistance="300" nodeId="42">
+          <Shape shapeId="7" name="PipeRight" translation="10.2715 0.286 6.16074" static="true" clipDistance="800" nodeId="43" materialIds="11" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="8" name="PipeFlange" translation="0 -0.21 0" static="true" clipDistance="300" nodeId="44" materialIds="11" castsShadows="true" receiveShadows="true"/>
+          </Shape>
+          <Shape shapeId="10" name="PipeLeft" translation="11.4601 0.286 6.16074" static="true" clipDistance="800" nodeId="45" materialIds="11" castsShadows="true" receiveShadows="true">
+            <Shape shapeId="8" name="PipeFlange" translation="0 -0.21 0" static="true" clipDistance="300" nodeId="46" materialIds="11" castsShadows="true" receiveShadows="true"/>
+          </Shape>
+          <Shape shapeId="11" name="PipeHandleBody" translation="10.8132 1.462 6.027" rotation="0 180 0" static="true" clipDistance="800" nodeId="47" materialIds="11" castsShadows="true" receiveShadows="true"/>
+          <TransformGroup name="Valve" translation="10.813 1.462 6.027" clipDistance="300" nodeId="48">
+            <Shape shapeId="12" name="PipeHandle" rotation="-180 -1.6064e-05 0" kinematic="true" clipDistance="300" nodeId="49" materialIds="11" castsShadows="true" receiveShadows="true"/>
+          </TransformGroup>
+        </TransformGroup>
+      </TransformGroup>
+  </Scene>
+
+  <UserAttributes>
+    <UserAttribute nodeId="48">
+      <Attribute name="maxRotateZ" type="float" value="200"/>
+    </UserAttribute>
+  </UserAttributes>
+
+</i3D>

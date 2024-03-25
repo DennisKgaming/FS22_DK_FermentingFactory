@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../shared/xml/schema/fillTypes.xsd">
+    
+	<fillTypes>
+		<fillType name="YEAST" title="Yeast" showOnPriceTable="true">
+            <physics massPerLiter="0.5" maxPhysicalSurfaceAngle="38" />
+            <economy pricePerLiter="15.0">
+                <factors>
+                    <factor period="1"  value="1.06" />
+                    <factor period="2"  value="1.01" />
+                    <factor period="3"  value="0.96" />
+                    <factor period="4"  value="0.90" />
+                    <factor period="5"  value="0.95" />
+                    <factor period="6"  value="0.95" />
+                    <factor period="7"  value="1.03" />
+                    <factor period="8"  value="1.09" />
+                    <factor period="9"  value="0.98" />
+                    <factor period="10" value="0.96" />
+                    <factor period="11" value="1.08" />
+                    <factor period="12" value="1.07" />
+                </factors>
+            </economy>
+            <image      hud     ="textures/yeast.dds" />
+            <pallet     filename="Pallets/yeast/yeastPallet.xml" />
+        </fillType>
+		
+		<fillType name="FRUIT_MASH" title="Fruit Mash" showOnPriceTable="true">
+            <physics massPerLiter="1.5" maxPhysicalSurfaceAngle="38" />
+            <economy pricePerLiter="3.8">
+                <factors>
+                    <factor period="1"  value="1.06" />
+                    <factor period="2"  value="1.01" />
+                    <factor period="3"  value="0.96" />
+                    <factor period="4"  value="0.90" />
+                    <factor period="5"  value="0.95" />
+                    <factor period="6"  value="0.95" />
+                    <factor period="7"  value="1.03" />
+                    <factor period="8"  value="1.09" />
+                    <factor period="9"  value="0.98" />
+                    <factor period="10" value="0.96" />
+                    <factor period="11" value="1.08" />
+                    <factor period="12" value="1.07" />
+                </factors>
+            </economy>
+            <image      hud     ="textures/fruitMash.dds" />
+            <pallet     filename="Pallets/fruitMash/fruitmashPallet.xml" />
+        </fillType>
+	</fillTypes>	
+		
+	
+    <fillTypeCategories>
+        <fillTypeCategory name="LOC_BEER_INGREDIENTS">YEAST FRUIT_MASH</fillTypeCategory>
+    </fillTypeCategories>
+</map>

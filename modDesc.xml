@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="77">
+   <author>DennisK</author>
+   <version>0.0.0.1</version>
+	<title>
+        <en>Fermenting Factory</en>
+		<de>Gärfabrik</de>
+    </title>
+    <description>
+       <en><![CDATA[No description availlable yet]]></en>
+
+		<de><![CDATA[No description availlable yet]]></de>
+    </description>
+	
+	<multiplayer supported="true" />
+	
+    <iconFilename>icons/icon_breweryPack.dds</iconFilename>
+
+	<fillTypes filename="xml/filltypes.xml" />
+
+    <storeItems>
+        <storeItem xmlFilename="FermentingFactory/xml/fermentingFactory.xml"/>
+		
+        <storeItem xmlFilename="Pallets/yeast/yeastPallet.xml"/>
+        <storeItem xmlFilename="Pallets/fruitMash/fruitmashPallet.xml"/>
+    </storeItems>
+	
+	<extraSourceFiles>		
+		<sourceFile filename="scripts/AnimatedObjectExtend.lua" />
+		<sourceFile filename="scripts/AnimatedObjectExtendEvent.lua" />
+    </extraSourceFiles>
+	
+</modDesc>

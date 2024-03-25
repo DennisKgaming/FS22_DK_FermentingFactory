@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="fruitmashPallet.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.4"/>
+  </Asset>
+
+  <Files>
+    <File fileId="3" filename="$data/objects/pallets/euroPallet01_diffuse.png"/>
+    <File fileId="4" filename="$data/objects/pallets/euroPallet01_normal.png"/>
+    <File fileId="5" filename="$data/objects/pallets/euroPallet01_specular.png"/>
+    <File fileId="16" filename="$data/shaders/decalShader.xml"/>
+    <File fileId="9" filename="$data/shaders/vehicleShader.xml"/>
+    <File fileId="15" filename="textures/fruitMash.png"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="barrel" materialId="5" diffuseColor="0.8 0.121569 0.00784314 1" specularColor="0.494118 1 0" customShaderId="9" customShaderVariation="colorMask">
+      <CustomParameter name="colorMat0" value="0.0802 0.0513 0.7231 0"/>
+    </Material>
+    <Material name="barrelDecal" materialId="6" specularColor="0.494118 1 0" customShaderId="16">
+      <Texture fileId="15"/>
+    </Material>
+    <Material name="barrelEdges" materialId="7" diffuseColor="0.8 0.329412 0 1" specularColor="0.494118 1 0" customShaderId="9" customShaderVariation="colorMask">
+      <CustomParameter name="colorMat0" value="0.8751 0.6524 0.0231 1"/>
+    </Material>
+    <Material name="barrelLids" materialId="8" diffuseColor="0.239216 0.239216 0.239216 1" specularColor="0.494118 1 0" customShaderId="9" customShaderVariation="colorMask">
+      <CustomParameter name="colorMat0" value="0.9157 0.142 0.0002 4"/>
+    </Material>
+    <Material name="euroPallet01_mat" materialId="9">
+      <Texture fileId="3"/>
+      <Normalmap fileId="4"/>
+      <Glossmap fileId="5"/>
+    </Material>
+    <Material name="i3d_default_material" materialId="10" diffuseColor="0.8 0.8 0.8 1" specularColor="0.6 1 0">
+    </Material>
+    <Material name="lambert1" materialId="11" diffuseColor="0.494118 0.494118 0.494118 1">
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="fruitmashPallet.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="fruitmashPallet_compound" dynamic="true" compound="true" collisionMask="2109442" clipDistance="300" nodeId="20" materialIds="10" nonRenderable="true">
+        <Shape shapeId="2" name="pallet_vis" nodeId="21" materialIds="9" castsShadows="true" receiveShadows="true">
+          <Shape shapeId="3" name="dynamicMountTrigger" translation="0 0.0904753 0" visibility="false" kinematic="true" trigger="true" collisionMask="134217728" nodeId="22" materialIds="11" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          <TransformGroup name="dischargeNode" translation="0 0.7 0" nodeId="23"/>
+          <TransformGroup name="content" nodeId="24">
+            <Shape shapeId="4" name="metalBarrel_01l" translation="0.321642 0.58 0.0992243" rotation="-90 67.4591 -180" scale="0.95 0.95 1" nodeId="25" materialIds="7,5,8" castsShadows="true" receiveShadows="true">
+              <Shape shapeId="5" name="metalBarrel_decal" translation="-0.01 0 0" nodeId="26" materialIds="6"/>
+              <Shape shapeId="6" name="metalBarrel_strap_01" translation="0.0162627 -0.0208599 0.524702" rotation="-90 -5.05545e-05 112.541" scale="1.05263 1 1.05263" nodeId="27" materialIds="10" nonRenderable="true"/>
+            </Shape>
+            <Shape shapeId="4" name="metalBarrel_02" translation="-0.325915 0.58 -0.115441" rotation="90.0548 -61.2328 0.613684" scale="0.95 0.95 1" nodeId="28" materialIds="7,5,8" castsShadows="true" receiveShadows="true">
+              <Shape shapeId="5" name="metalBarrel_decal" translation="-0.01 0 0" nodeId="29" materialIds="6"/>
+              <Shape shapeId="6" name="metalBarrel_strap_02" translation="0.0262736 -0.00619344 0.524702" rotation="-90 -5.05545e-05 112.541" scale="1.05263 1 1.05263" nodeId="30" materialIds="10" nonRenderable="true"/>
+            </Shape>
+          </TransformGroup>
+          <TransformGroup name="collisions" clipDistance="10" nodeId="31">
+            <Shape shapeId="7" name="floorCollision01" translation="0.3 0 0" compoundChild="true" collisionMask="16781578" staticFriction="1" dynamicFriction="1" density="0.0001" nodeId="32" materialIds="11" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+            <Shape shapeId="7" name="floorCollision02" translation="-0.3 0 0" compoundChild="true" collisionMask="16781578" staticFriction="1" dynamicFriction="1" density="0.0001" nodeId="33" materialIds="11" castsShadows="true" receiveShadows="true" nonRenderable="true"/>
+          </TransformGroup>
+        </Shape>
+      </Shape>
+  </Scene>
+
+</i3D>

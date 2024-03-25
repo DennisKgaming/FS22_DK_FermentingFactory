@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="productionPoint" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/placeable.xsd">
+    
+	<storeData>
+		<name>
+			<en>Fermenting Production</en>
+			<de>Gärung Produktion</de>
+		</name>
+        <functions>
+            <function>$l10n_function_productionPoint</function>
+        </functions>
+        <image>icons/storeIcon_breweryPack.dds</image> <!-- @TODO Need new Icon -->
+        <price>40000</price>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>NONE</brand>
+        <species>placeable</species>
+        <category>productionPoints</category>
+        <brush>
+            <type>placeable</type>
+            <category>production</category>
+            <tab>factories</tab>
+        </brush>
+        <storeIconRendering>
+            <settings cameraXRot="-30" cameraYRot="-30" advancedBoundingBox="true"/>
+        </storeIconRendering>
+        <vertexBufferMemoryUsage>595456</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>99840</indexBufferMemoryUsage>
+        <textureMemoryUsage>13434880</textureMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <filename>FermentingFactory/i3d/FermentingFactory.i3d</filename>
+        <canBeRenamed>true</canBeRenamed>
+        <boughtWithFarmland>true</boughtWithFarmland>
+    </base>
+
+    <placement useRandomYRotation="false" useManualYRotation="true" >
+        <testAreas>
+            <testArea startNode="testArea1Start" endNode="testArea1End" />
+        </testAreas>
+
+        <sounds>
+            <place template="medImp" />
+        </sounds>
+    </placement>
+
+    <clearAreas>
+        <clearArea startNode="clearArea1Start" widthNode="clearArea1Width" heightNode="clearArea1Height"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30" >
+        <levelAreas>
+            <levelArea startNode="levelArea01Start" widthNode="levelArea01Width" heightNode="levelArea01Height" />
+        </levelAreas>
+		
+		<paintAreas>
+			<paintArea startNode="paintArea1start" widthNode="paintArea1width" heightNode="paintArea1height" groundType="asphalt" />
+			<paintArea startNode="paintArea2start" widthNode="paintArea2width" heightNode="paintArea2height" groundType="asphalt" />
+			<paintArea startNode="paintArea3start" widthNode="paintArea3width" heightNode="paintArea3height" groundType="grass" />
+			<paintArea startNode="paintArea4start" widthNode="paintArea4width" heightNode="paintArea4height" groundType="grass" />
+		</paintAreas>
+    </leveling>
+	
+	<foliageAreas>
+		
+		<foliageArea startNode="paintArea3start" widthNode="paintArea3width" heightNode="paintArea3height" fruitType="grass" /> <!-- mowable -->
+        <foliageArea startNode="paintArea4start" widthNode="paintArea4width" heightNode="paintArea4height" fruitType="grass" /> <!-- mowable -->
+       
+    </foliageAreas>
+
+    <indoorAreas>
+        <indoorArea startNode="indoorArea1Start" widthNode="indoorArea1Width" heightNode="indoorArea1Height"/>
+        <indoorArea startNode="indoorArea2Start" widthNode="indoorArea2Width" heightNode="indoorArea2Height"/>
+        <indoorArea startNode="indoorArea3Start" widthNode="indoorArea3Width" heightNode="indoorArea3Height"/>
+        <indoorArea startNode="indoorArea4Start" widthNode="indoorArea4Width" heightNode="indoorArea4Height"/>
+        <indoorArea startNode="indoorArea5Start" widthNode="indoorArea5Width" heightNode="indoorArea5Height"/>
+    </indoorAreas>
+
+    <tipOcclusionUpdateAreas>
+        <tipOcclusionUpdateArea startNode="clearArea1Start" endNode="clearArea1Start" />
+    </tipOcclusionUpdateAreas>
+
+    <ai>
+        <updateAreas>
+            <updateArea startNode="clearArea1Start" endNode="clearArea1Start" />
+        </updateAreas>
+    </ai>
+
+    <infoTrigger triggerNode="infoTrigger"/>
+
+    <triggerMarkers>
+        <triggerMarker node="unloadTriggerMarker_solid"     filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" 	adjustToGround="false" />
+        <triggerMarker node="unloadTriggerMarker_liquid"    filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" 	adjustToGround="false" />
+        <triggerMarker node="playerTriggerMarker"           filename="$data/shared/assets/marker/markerIcons.xml" id="WRENCH" 	adjustToGround="true" />
+        <triggerMarker node="markerLoading" 				filename="$data/shared/assets/marker/markerIcons.xml" id="LOAD" 	adjustToGround="true" />		
+    </triggerMarkers>
+
+    <hotspots>
+        <hotspot type="PRODUCTION_POINT" linkNode="mapPosition" teleportNode="mapPosition"/>
+    </hotspots>
+
+    <productionPoint>
+        <productions sharedThroughputCapacity="false">
+		
+			<production id="FRUIT_MASH_FACTORY" name="Fruit Mash" cyclesPerHour="5" costsPerActiveHour="20">
+                <inputs>
+                    <input fillType="STRAWBERRY"	amount="1000" />
+               </inputs>
+               <outputs>
+                    <output fillType="FRUIT_MASH" amount="800" />				
+                    <!-- <output fillType="MANURE" amount="1000" />				 -->
+               </outputs>
+			</production>
+			
+			<production id="YEAST_FACTORY" name="Yeast" cyclesPerHour="4" costsPerActiveHour="20">
+                <inputs>
+                    <input fillType="STRAWBERRY" 	amount="200" />
+                    <input fillType="SUGAR" 		amount="600" />
+                    <input fillType="WATER" 		amount="600" />
+               </inputs>
+               <outputs>
+                    <output fillType="YEAST" 		amount="1000" />				
+                    <!-- <output fillType="MANURE" 		amount="1000" />				 -->
+               </outputs>
+			</production>
+			
+			<production id="SILAGE_ADDITIVE_FACTORY" name="Silage Additive" cyclesPerHour="3" costsPerActiveHour="20">
+                <inputs>
+                    <input fillType="STRAWBERRY"		amount="200" />
+                    <input fillType="LETTUCE" 			amount="200" />
+                    <input fillType="TOMATO" 			amount="200" />
+                    <input fillType="YEAST" 			amount="10" />
+                    <input fillType="WATER" 			amount="600" />
+                    <input fillType="SUGAR" 			amount="200" />
+               </inputs>
+               <outputs>
+                    <output fillType="SILAGE_ADDITIVE" amount="1000" />				
+                    <!-- <output fillType="MANURE" amount="1000" />				 -->
+               </outputs>
+			</production>
+			
+			<production id="YEAST_MULTIPLYING" name="Yeast Multiply" cyclesPerHour="1" costsPerActiveHour="20">
+                <inputs>
+                    <input fillType="YEAST" 			amount="100" />
+               </inputs>
+               <outputs>
+                    <output fillType="YEAST" amount="125" />				
+                    <!-- <output fillType="MANURE" amount="1000" />				 -->
+               </outputs>
+			</production>
+			
+        </productions>
+
+        <sellingStation node="sellingStation" appearsOnStats="false" supportsExtension="false" allowMissions="false" hideFromPricesMenu="true">
+
+            <unloadTrigger exactFillRootNode="unloadTriggerBunker"       fillTypes="STRAWBERRY LETTUCE TOMATO SUGAR YEAST" />
+            <unloadTrigger fillTypes="STRAWBERRY LETTUCE TOMATO SUGAR YEAST">
+                <baleTrigger triggerNode="baleTriggerBunker" />
+            </unloadTrigger>
+
+            <unloadTrigger exactFillRootNode="unloadTriggerLiquid"      fillTypes="WATER" aiNode="unloadTriggerInFrontAINode" />
+            
+        </sellingStation>
+
+        <palletSpawner>
+			<spawnPlaces>
+				<spawnPlace startNode="spawnSpace1start" endNode="spawnSpace1end"/>
+				<spawnPlace startNode="spawnSpace2start" endNode="spawnSpace2end"/>
+			</spawnPlaces>
+		</palletSpawner>
+
+        <storage isExtension="false" fillLevelSyncThreshold="100">
+			<!-- in -->
+			<capacity fillType="STRAWBERRY"    		capacity="75000" />
+			<capacity fillType="LETTUCE"    		capacity="125500" />
+			<capacity fillType="TOMATO"    			capacity="125500" />
+			<capacity fillType="SUGAR"    			capacity="125500" />
+			<!-- <capacity fillType="MANURE"    			capacity="125500" /> -->
+			<!-- out -->
+			<capacity fillType="SILAGE_ADDITIVE"	capacity="125500" />
+			<capacity fillType="YEAST"    			capacity="125500" />
+			<capacity fillType="FRUIT_MASH"    		capacity="125500" />
+			
+			<capacity fillType="WATER"    			capacity="75000" />
+			
+			<fillPlane fillType="WATER" node="waterFillLevel_mover" minY="0" maxY="0.3" />
+        </storage>
+
+        <playerTrigger node="playerTrigger" />
+
+        <sounds>
+            <idle template="dairyIdle" linkNode="0>" outerRadius="50"/>
+            <active template="dairyWork" linkNode="0>" outerRadius="50"/>
+        </sounds>
+    </productionPoint>
+
+	<incomePerHour>10</incomePerHour>
+
+	<animatedObjects>
+	
+		<animatedObject index="fermentingfactoryGate">
+		  <controls triggerNode="SlideGate01_trigger" posAction="ACTIVATE_HANDTOOL" posText="action_openGate" negText="action_closeGate" />
+		  <animation initialTime="0" duration="5">
+			<part node="SlideGate01_gate">
+			  <keyFrame time="0.05" translation="7.75 0 0" />
+			  <keyFrame time="1.00" translation="-7.3 0 0" />
+			</part>
+		  </animation>
+		  <sounds>
+			<moving linkNode="SlideGate01_gate" template="slidingGateMetalLoop" />
+			<posEnd linkNode="SlideGate01_gate" template="slidingGateMetalOpen" />
+			<negEnd linkNode="SlideGate01_gate" template="slidingGateMetalClose" />
+		  </sounds>
+		</animatedObject>
+	
+	</animatedObjects>
+
+    <i3dMappings>
+        
+        <i3dMapping id="testArea1Start" 					node="0>0|0|1" />
+        <i3dMapping id="testArea1End" 						node="0>0|0|1|0" />
+		
+        <i3dMapping id="clearArea1Start" 					node="0>0|1|1" />
+        <i3dMapping id="clearArea1Width" 					node="0>0|1|1|0" />
+        <i3dMapping id="clearArea1Height" 					node="0>0|1|1|1" />
+		
+        <i3dMapping id="levelArea01Start" 					node="0>0|2|1" />
+        <i3dMapping id="levelArea01Width" 					node="0>0|2|1|0" />
+        <i3dMapping id="levelArea01Height" 					node="0>0|2|1|1" />
+		
+        <i3dMapping id="indoorArea1Start" 					node="0>0|3|5" />
+        <i3dMapping id="indoorArea1Width" 					node="0>0|3|5|0" />
+        <i3dMapping id="indoorArea1Height" 					node="0>0|3|5|1" />
+		
+        <i3dMapping id="indoorArea2Start" 					node="0>0|3|6" />
+        <i3dMapping id="indoorArea2Width" 					node="0>0|3|6|0" />
+        <i3dMapping id="indoorArea2Height" 					node="0>0|3|6|1" />
+		
+        <i3dMapping id="indoorArea3Start" 					node="0>0|3|7" />
+        <i3dMapping id="indoorArea3Width" 					node="0>0|3|7|0" />
+        <i3dMapping id="indoorArea3Height" 					node="0>0|3|7|1" />
+		
+        <i3dMapping id="indoorArea4Start" 					node="0>0|3|8" />
+        <i3dMapping id="indoorArea4Width" 					node="0>0|3|8|0" />
+        <i3dMapping id="indoorArea4Height" 					node="0>0|3|8|1" />
+		
+        <i3dMapping id="indoorArea5Start" 					node="0>0|3|9" />
+        <i3dMapping id="indoorArea5Width" 					node="0>0|3|9|0" />
+        <i3dMapping id="indoorArea5Height" 					node="0>0|3|9|1" />
+		
+        <i3dMapping id="paintArea1start" 					node="0>0|4|0" />
+        <i3dMapping id="paintArea1width" 					node="0>0|4|0|0" />
+        <i3dMapping id="paintArea1height" 					node="0>0|4|0|1" />
+        <i3dMapping id="paintArea2start" 					node="0>0|4|1" />
+        <i3dMapping id="paintArea2width" 					node="0>0|4|1|0" />
+        <i3dMapping id="paintArea2height" 					node="0>0|4|1|1" />
+        <i3dMapping id="paintArea3start" 					node="0>0|4|2" />
+        <i3dMapping id="paintArea3width" 					node="0>0|4|2|0" />
+        <i3dMapping id="paintArea3height" 					node="0>0|4|2|1" />
+        <i3dMapping id="paintArea4start" 					node="0>0|4|3" />
+        <i3dMapping id="paintArea4width" 					node="0>0|4|3|0" />
+        <i3dMapping id="paintArea4height" 					node="0>0|4|3|1" />
+		
+        <i3dMapping id="unloadTriggerMarker_solid" 			node="0>1|0" />
+        <i3dMapping id="unloadTriggerMarker_liquid" 		node="0>1|1" />
+        <i3dMapping id="playerTriggerMarker" 				node="0>1|2" />
+        <i3dMapping id="markerLoading" 						node="0>1|3" />
+        <i3dMapping id="infoTrigger" 						node="0>1|4" />
+        <i3dMapping id="playerTrigger" 						node="0>1|5" />
+		
+        <i3dMapping id="mapPosition" 						node="0>2" />
+		
+        <i3dMapping id="unloadTriggerBunker" 				node="0>3|0|0|0" />
+        <i3dMapping id="baleTriggerBunker" 					node="0>3|0|0|1" />
+        <i3dMapping id="unloadTriggerLiquid" 				node="0>3|0|1|0" />
+        <i3dMapping id="unloadTriggerInFrontAINode" 		node="0>3|0|1|1" />
+		
+        <i3dMapping id="spawnSpace1start" 					node="0>4|0" />
+        <i3dMapping id="spawnSpace1end" 					node="0>4|0|0" />
+        <i3dMapping id="spawnSpace2start" 					node="0>4|1" />
+        <i3dMapping id="spawnSpace2end" 					node="0>4|1|0" />
+		
+        <i3dMapping id="waterFillLevel_mover" 				node="0>5|2|0|0|1" />
+		
+        <i3dMapping id="SlideGate01_gate" 					node="0>7|4|0" />
+        <i3dMapping id="SlideGate01_trigger" 				node="0>7|4|1" />
+		
+		
+    </i3dMappings>
+</placeable>
